@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamar no WhatsApp</title>
+    <script>
+        function enviarMensagem() {
+            const nome = document.getElementById('nome').value;
+            const numero = '91983308951'; // Substitua pelo número desejado (com DDD)
+            const mensagem = `Oi ${nome}, como posso ajudar?`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+            
+            // Exibe o botão do WhatsApp
+            document.getElementById('whatsappButton').style.display = 'block';
+            document.getElementById('whatsappLink').href = whatsappUrl;
+        }
+    </script>
+    <style>
+        #whatsappButton {
+            display: none; /* Oculta o botão inicialmente */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digite seu nome</h1>
+    <input type="text" id="nome" placeholder="Seu nome" />
+    <button onclick="enviarMensagem()">Enviar</button>
+
+    <a id="whatsappButton" href="#" target="_blank">Chamar no WhatsApp</a>
+</body>
+</html>
